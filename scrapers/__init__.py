@@ -2,12 +2,16 @@ from scrapers.keka import KekaScraper
 from scrapers.lever import LeverScraper
 from scrapers.greenhouse import GreenhouseScraper
 from scrapers.generic_html import GenericHtmlScraper
+from scrapers.workable import WorkableScraper
+from scrapers.zoho_rss import ZohoRssScraper
 
 SCRAPERS = {
     "keka": KekaScraper,
     "lever": LeverScraper,
     "greenhouse": GreenhouseScraper,
-    "generic_html": GenericHtmlScraper
+    "generic_html": GenericHtmlScraper,
+    "workable": WorkableScraper,
+    "zoho_rss": ZohoRssScraper
 }
 
 def get_scraper(scraper_type: str):

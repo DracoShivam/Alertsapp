@@ -25,6 +25,100 @@
         "departments": ["Technology"],
         "title_keywords": []
       }
+    },
+    {
+      "name": "Moonfrog Labs",
+      "enabled": false,
+      "_note": "moonfrog.keka.com returns 404 - Stillfront-owned, verify current ATS URL from their website.",
+      "type": "keka",
+      "url": "https://moonfrog.keka.com/careers",
+      "filters": {
+        "departments": [],
+        "title_keywords": []
+      }
+    },
+    {
+      "name": "Lakshya Digital (Keywords Studios)",
+      "type": "workable",
+      "url": "https://apply.workable.com/lakshyadigitalglobal",
+      "filters": {
+        "departments": [],
+        "title_keywords": ["engineer", "developer", "technical", "programmer", "tech", "rigger", "pipeline", "tools"]
+      }
+    },
+    {
+      "name": "Junglee Games",
+      "type": "workable",
+      "url": "https://apply.workable.com/junglee-games/",
+      "filters": {
+        "departments": [],
+        "title_keywords": []
+      }
+    },
+    {
+      "name": "PlaySimple Games",
+      "type": "zoho_rss",
+      "url": "https://careers.playsimple.in/jobs/Careers",
+      "filters": {
+        "departments": [],
+        "title_keywords": ["engineer", "developer", "sde", "programmer", "tech", "unity", "backend", "server", "data", "qa"]
+      }
+    },
+    {
+      "name": "SuperGaming",
+      "enabled": false,
+      "_note": "No structured job board — uses email (hiring@supergaming.com). Re-enable and add selectors if they add an ATS.",
+      "type": "generic_html",
+      "url": "https://www.supergaming.com/careers",
+      "selectors": {},
+      "filters": {
+        "departments": [],
+        "title_keywords": []
+      }
+    },
+    {
+      "name": "Mayhem Studios",
+      "type": "generic_html",
+      "url": "https://mayhem-studios.com/career.html",
+      "selectors": {
+        "job_container": "div.careerCard",
+        "title": "h4",
+        "department": "p",
+        "location": "span.location",
+        "link": ""
+      },
+      "filters": {
+        "departments": [],
+        "title_keywords": ["developer", "engineer", "programmer", "unity", "unreal", "tech", "server", "backend", "sde"]
+      }
+    },
+    {
+      "name": "Juego Studios",
+      "type": "generic_html",
+      "url": "https://www.juegostudio.com/careers",
+      "selectors": {
+        "job_container": "div.col-sm-9.set",
+        "title": "h5.cr-left-h5",
+        "department": "h6 + p",
+        "location": "h5.arrow-right-h5",
+        "link": "a"
+      },
+      "filters": {
+        "departments": [],
+        "title_keywords": ["developer", "engineer", "programmer", "unity", "unreal", "tech", "html5"]
+      }
+    },
+    {
+      "name": "Nodding Heads Games",
+      "enabled": false,
+      "_note": "Wix-based SPA — JS-rendered. Generic scraper returns 0 results. Monitor LinkedIn or check for an ATS form link.",
+      "type": "generic_html",
+      "url": "https://www.noddingheadsgames.com/jobs",
+      "selectors": {},
+      "filters": {
+        "departments": [],
+        "title_keywords": []
+      }
     }
   ]
 }

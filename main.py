@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import logging
 import argparse
@@ -7,12 +8,16 @@ from dotenv import load_dotenv
 from scrapers import get_scraper
 from notifiers import get_notifier
 
+# Fix Windows console encoding
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
-        logging.StreamHandler()
+        logging.StreamHandler(stream=sys.stdout)
     ]
 )
 logger = logging.getLogger("job_tracker")
@@ -45,7 +50,7 @@ def save_state(state_path: str, state: dict):
 
 def main():
     # Load environment variables from .env
-    load_dotenv()
+    load_dotenv(override=True)
 
     parser = argparse.ArgumentParser(description="Extensible Job Tracker Bot")
     parser.add_argument("--config", default="config.json", help="Path to config.json")
@@ -77,10 +82,16 @@ def main():
 
     for source in sources:
         name = source.get("name", "Unknown Source")
+
+        # Allow sources to be disabled via config
+        if not source.get("enabled", True):
+            logger.info(f"Skipping disabled source: '{name}'")
+            continue
+
         scraper_type = source.get("type")
         url = source.get("url")
         filters = source.get("filters", {})
-        selectors = source.get("selectors") # Used by generic_html
+        selectors = source.get("selectors")  # Used by generic_html
 
         if not scraper_type or not url:
             logger.error(f"Invalid source config for {name}. Missing 'type' or 'url'.")
