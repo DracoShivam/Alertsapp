@@ -67,9 +67,9 @@
     {
       "name": "SuperGaming",
       "enabled": false,
-      "_note": "No structured job board — uses email (hiring@supergaming.com). Re-enable and add selectors if they add an ATS.",
+      "_note": "Email-only page (hiring@supergaming.com). No structured job listings on careers.html. Re-enable if they add an ATS.",
       "type": "generic_html",
-      "url": "https://www.supergaming.com/careers",
+      "url": "https://www.supergaming.com/careers.html",
       "selectors": {},
       "filters": {
         "departments": [],
@@ -78,15 +78,8 @@
     },
     {
       "name": "Mayhem Studios",
-      "type": "generic_html",
-      "url": "https://mayhem-studios.com/career.html",
-      "selectors": {
-        "job_container": "div.careerCard",
-        "title": "h4",
-        "department": "p",
-        "location": "span.location",
-        "link": ""
-      },
+      "type": "keka",
+      "url": "https://mayhem.keka.com/careers",
       "filters": {
         "departments": [],
         "title_keywords": ["developer", "engineer", "programmer", "unity", "unreal", "tech", "server", "backend", "sde"]
