@@ -2,8 +2,9 @@ name: Run Job Tracker Bot
 
 on:
   schedule:
-    # Run daily at 08:00 UTC (1:30 PM IST)
-    - cron: '0 8 * * *'
+    # Run every 6 hours at minute 25 (e.g., 00:25, 06:25, 12:25, 18:25 UTC)
+    # Shifting off the top of the hour (00) avoids peak GitHub Actions traffic and reduces scheduling delays.
+    - cron: '25 */6 * * *'
   workflow_dispatch:
     # Allow manual triggering from GitHub UI
 
